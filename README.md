@@ -5,7 +5,7 @@ Simple test script to run a test script against Chrome using [WebdriverIO](http:
 To run:
 
 ```
-./go
+npm test
 ```
 
 ## Requires

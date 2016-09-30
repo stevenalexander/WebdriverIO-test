@@ -3,14 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./go"
+    "test": "gulp test"
   },
   "dependencies": {
-    "mocha": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-webdriver": "^2.0.2",
     "selenium-standalone": "^5.7.2",
+    "wdio-mocha-framework": "^0.4.3",
     "webdriverio": "^4.2.16"
-  },
-  "devDependencies": {
-    "wdio-mocha-framework": "^0.4.3"
   }
 }
