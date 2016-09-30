@@ -1,0 +1,16 @@
+{
+  "name": "webdriverio-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "./go"
+  },
+  "dependencies": {
+    "mocha": "^3.1.0",
+    "selenium-standalone": "^5.7.2",
+    "webdriverio": "^4.2.16"
+  },
+  "devDependencies": {
+    "wdio-mocha-framework": "^0.4.3"
+  }
+}

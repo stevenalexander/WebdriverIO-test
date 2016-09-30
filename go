@@ -1,20 +1,19 @@
-if [ ! -f selenium-server-standalone-2.47.1.jar ]
-then
-  echo "*** Downloading Selenium Server Standalone"
-  curl -O http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.1.jar
-fi
+echo "\n*** Getting node dependencies"
+
+npm install
+
+echo "\n*** Installing Selenium Standalone with browser drivers"
+
+node_modules/.bin/selenium-standalone install
 
 echo "\n*** Starting Selenium Server as background process"
 
-java -jar selenium-server-standalone-2.47.1.jar &
-
-echo "\n*** Getting node dependencies"
-
-npm install webdriverio
+node_modules/.bin/selenium-standalone start &
 
 echo "\n*** Running test script"
 
-node test.js
+node_modules/.bin/wdio wdio.conf.js
 
 echo "\n*** Killing Selenium Server"
-pkill -f 'selenium-server-standalone*'
+
+pkill -f "node node_modules/.bin/selenium-standalone start"

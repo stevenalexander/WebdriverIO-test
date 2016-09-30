@@ -1,6 +1,6 @@
 # WebdriverIO test
 
-Simple test script to download Selenium Server standalone and run a test script against Firefox using [WebdriverIO](http://webdriver.io/guide.html).
+Simple test script to run a test script against Chrome using [WebdriverIO](http://webdriver.io/guide.html).
 
 To run:
 
@@ -10,7 +10,8 @@ To run:
 
 ## Requires
 
-- Mac/Linux (for standard commandline tools like cURL)
+Tested on Mac
+
 - JRE (for running Selenium)
 - Node and npm
-- Firefox
+- Chrome
