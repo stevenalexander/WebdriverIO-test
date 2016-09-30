@@ -2,28 +2,26 @@ var gulp = require('gulp')
 var selenium = require('selenium-standalone')
 var webdriver = require('gulp-webdriver')
 
-gulp.task('selenium', function (done) {
-  selenium.install({
-    logger: function (message) { }
-  }, function (err) {
-    if (err) return done(err)
+let seleniumServer
 
-    selenium.start(function (err, child) {
-      if (err) return done(err)
-      selenium.child = child
-
+gulp.task('selenium', (done) => {
+  selenium.install({logger: console.log}, () => {
+    selenium.start((err, child) => {
+      if (err) { return done(err) }
+      seleniumServer = child
       done()
     })
   })
 })
 
-gulp.task('integration', ['selenium'], function () {
-  return gulp.src('wdio.conf.js').pipe(webdriver({
-    logLevel: 'verbose',
-    waitforTimeout: 10000
-  }))
+gulp.task('e2e', ['selenium'], () => {
+  return gulp.src('wdio.conf.js')
+    .pipe(webdriver()).on('error', () => {
+      seleniumServer.kill()
+      process.exit(1)
+    })
 })
 
-gulp.task('test', ['integration', 'selenium'], function () {
-  selenium.child.kill()
+gulp.task('test', ['e2e'], () => {
+  seleniumServer.kill()
 })

@@ -1,13 +1,11 @@
-/* global browser describe after it */
-describe('First Spec', function (done) {
-  it('should navigate to the WebdriverIO homepage', function () {
-    return browser.url('http://webdriver.io/')
-      .getUrl().then(function (url) {
-        console.log(url)
+/* global browser describe it */
+var assert = require('assert')
+
+describe('First Spec', () => {
+  it('should navigate to the WebdriverIO homepage', () => {
+    return browser.url('https://google.co.uk/')
+      .getTitle().then(function (title) {
+        assert.equal(title, 'Google')
       })
-      .call(done)
-  })
-  after(function (done) {
-    browser.end(done)
   })
 })

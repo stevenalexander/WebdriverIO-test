@@ -6,6 +6,7 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "gulp": "^3.9.1",
     "gulp-webdriver": "^2.0.2",
     "selenium-standalone": "^5.7.2",
